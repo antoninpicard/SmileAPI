@@ -4,7 +4,7 @@ import path from 'path';
 const router: Router = express.Router();
 
 const Phrases: string[] = ["Phrase 1", "Phrase 2", "Phrase 3"];
-const Images: string[] = ["image2.png"];
+const Images: string[] = ["image2.png", "abc.png"];
 
 router.get('/randomphrase', (req: Request, res: Response) => {
   const randomIndex: number = Math.floor(Math.random() * Phrases.length);
