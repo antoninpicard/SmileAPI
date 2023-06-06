@@ -1,17 +1,9 @@
 import express, { Request, Response, Router } from 'express';
-import fs from 'fs';
-import path from 'path';
 
 const router: Router = express.Router();
 
 const Phrases: string[] = ["Phrase 1", "Phrase 2", "Phrase 3"];
-let Images: Buffer[] = [];
-
-fs.readdirSync(path.join(__dirname, 'Images')).forEach(file => {
-  const imagePath = path.join(__dirname, 'Images', file);
-  const image = fs.readFileSync(imagePath);
-  Images.push(image);
-});
+const Images: string[] = ["image1.png", "image2.png"];
 
 router.get('/randomphrase', (req: Request, res: Response) => {
   const randomIndex: number = Math.floor(Math.random() * Phrases.length);
@@ -21,9 +13,9 @@ router.get('/randomphrase', (req: Request, res: Response) => {
 
 router.get('/randomimage', (req: Request, res: Response) => {
   const randomIndex: number = Math.floor(Math.random() * Images.length);
-  const randomImage: Buffer = Images[randomIndex];
-  res.setHeader('Content-Type', 'image/png');
-  res.send(randomImage);
+  const randomImageName: string = Images[randomIndex];
+  const imagePath: string = `Images/${randomImageName}`;
+  res.sendFile(imagePath, { root: __dirname });
 });
 
 export default router;

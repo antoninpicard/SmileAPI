@@ -1,6 +1,7 @@
 import express from 'express';
+
 import MessageResponse from '../interfaces/MessageResponse';
-import random from './randomcontroller';
+import random from './randomController';
 
 const router = express.Router();
 
@@ -10,6 +11,6 @@ router.get<{}, MessageResponse>('/', (req, res) => {
   });
 });
 
-router.use('/randomcontroller', random);
+router.use('/randomController', random);
 
 export default router;
