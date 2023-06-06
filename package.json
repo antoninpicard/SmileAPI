@@ -9,7 +9,8 @@
     "build": "tsc",
     "lint": "eslint --fix src test",
     "test": "jest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "vercel-build": "echo hello"
   },
   "keywords": [],
   "author": "Antonin Picard",
@@ -23,7 +24,8 @@
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "helmet": "^7.0.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "vercel": "^30.1.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",
