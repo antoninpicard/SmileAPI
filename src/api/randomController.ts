@@ -1,4 +1,5 @@
 import express, { Request, Response, Router } from 'express';
+import path from 'path';
 
 const router: Router = express.Router();
 
@@ -14,8 +15,8 @@ router.get('/randomphrase', (req: Request, res: Response) => {
 router.get('/randomimage', (req: Request, res: Response) => {
   const randomIndex: number = Math.floor(Math.random() * Images.length);
   const randomImageName: string = Images[randomIndex];
-  const imagePath: string = `Images/${randomImageName}`;
-  res.sendFile(imagePath, { root: __dirname });
+  const imagePath: string = path.join(__dirname, 'Images', randomImageName);
+  res.sendFile(imagePath);
 });
 
 export default router;
