@@ -15,8 +15,9 @@ router.get('/randomphrase', (req: Request, res: Response) => {
 router.get('/randomimage', (req: Request, res: Response) => {
   const randomIndex: number = Math.floor(Math.random() * Images.length);
   const randomImageName: string = Images[randomIndex];
-  const imagePath: string = path.join(__dirname, 'Images', randomImageName);
-  res.sendFile(imagePath);
+  const imageUrl: string = `https://smile-api.vercel.app/api/Images/${randomImageName}`;
+  res.json({ imageUrl });
 });
+
 
 export default router;
