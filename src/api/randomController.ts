@@ -15,8 +15,8 @@ router.get('/randomphrase', (req: Request, res: Response) => {
 router.get('/randomimage', (req: Request, res: Response) => {
   const randomIndex: number = Math.floor(Math.random() * Images.length);
   const randomImageName: string = Images[randomIndex];
-  const imagePath: string = path.join(__dirname, '../../public/Images', randomImageName);
-
+  const imagePath: string = path.join(__dirname, '../public/Images', randomImageName);
+  res.setHeader('Cache-Control', 'no-store, max-age=0');
   res.sendFile(imagePath);
 });
 
