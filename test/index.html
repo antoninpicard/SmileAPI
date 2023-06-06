@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="" class="hey">
+    <script>
+        fetch('https://smile-api.vercel.app/api/randomcontroller/randomimage')
+        .then(response => response.json())
+        .then(data => {
+          const imageUrl = `https://smile-api.vercel.app/Images/${data.imageName}`;
+          const div = document.getElementsByClassName('hey');
+          div[0].src = imageUrl;
+        });
+    </script>
+</body>
+</html>
