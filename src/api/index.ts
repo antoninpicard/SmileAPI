@@ -11,6 +11,6 @@ router.get<{}, MessageResponse>('/', (req, res) => {
   });
 });
 
-router.use('/randomController', random);
+router.use('/randomcontroller', random);
 
 export default router;
