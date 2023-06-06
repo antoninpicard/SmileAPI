@@ -1,7 +1,7 @@
 import express from 'express';
 
 import MessageResponse from '../interfaces/MessageResponse';
-import random from './randomController';
+import random from './randomcontroller';
 
 const router = express.Router();
 
